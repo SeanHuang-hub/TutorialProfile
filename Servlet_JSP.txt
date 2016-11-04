@@ -1,0 +1,26 @@
+◎Servlet/JSP 
+
+●對於Java而言
+JVM是作業系統、.java編譯為.class檔案、.class對JVM而言就是可執行檔
+
+開始撰寫Servlet/JSP程式時，你必須開始接觸容器（Container）
+在最基本的功能上，它不僅持有物件，還負責物件的生命周期與相關服務的連結
+
+以Servlet/JSP所運行的Web容器（Web Container）
+如何變成你寫的Servlet/JSP中可用的Java物件，其實就是容器為你剖析與轉換
+
+只要你寫的Servlet/JSP是符合Web容器的標準規範，你的Servlet/JSP就可以在各種不同廠商實作的Web容器上運行，而不用理會底層真正的Web伺服器。
+
+基本請求/回應例子:
+1.客戶端對web server呼叫http請求
+2.web server收到請求後，將交由web container做處理
+3.web container根據請求的URL，決定交由哪個servlet做處理
+4.servlet根據HttpServletRequest來建立回應HttpServletResponse
+5.web container與web server溝通，web server將回應轉換http回應使用者
+
+●Servlet
+負責Servlet和用戶的通信以及調用Servlet的方法。
+用於以動態響應客戶端請求。
+基本上必須繼承javax.servlet.http.HttpServlet
+
+●JSP

@@ -1,0 +1,137 @@
+<!--JavaScript Tutorial-->
+
+<html>
+	<head>
+		<style>
+			h1 {color:red;}
+		</style>
+		<title>JavaScript Tutorial</title>
+	</head>
+	<body>
+		<!-- 事件處理監聽
+			onChange, onClick, onFocus, onLoad, onUnload
+			onMouseOver, onMouseOut, onSelect, onSubmit
+		-->
+		<input type="button" name="event" value="EventTest" onClick="fun1()">
+		
+		<script>
+			<!-- write -->
+			document.write("<h1>JavaScript Tutorial</h1>")
+			
+			<!-- String -->
+			var name = "Sean"
+			<!-- Number -->
+			var id = 1234
+			var pi = 3.141592653589
+			var expo = 54e7
+			var octal_num = 010
+			var hex_num = 0x10
+			<!-- boolean -->
+			var is_enabled = true
+			<!-- object -->
+			var dw = document.write
+			<!-- array -->
+			var num_array = new Array(1,2,3,4)
+			var str_array = new Array("A","B")
+			var array1 = new Array()
+			var array2 = new Array(50)//50=length
+			//use array element
+			num_array[0]//0=index
+			num_array.length//array length
+			
+			//算數運算子
+			var num1 = 100
+			var num2 = 200
+			var num3
+			num3 = num1 + num2
+			num3++
+			num3 = num1 - num2
+			num3--
+			num3 = num1 / num2
+			num3 = num1 * num2
+			num3 = num1 % num2
+			//字串運算子
+			var str1 = "abc"
+			var str2 = "xyz"
+			var str3
+			str3 = str1 + str2
+			str1 += str2
+			//邏輯運算子
+			var bool1 = true
+			var bool2 = false
+			var bool3
+			bool3 = bool1 && bool2 //and
+			bool3 = bool1 || bool2 //or
+			bool3 = |bool1 //not
+			//位元運算子
+			var bin1 = 00001111
+			var bin2 = 11110000
+			var bin3
+			bin3 = bin1 & bin2 //and
+			bin3 = bin1 | bin2 //or
+			bin3 = bin1 ^ bin2 //xor
+			bin3 = ~bin1 //not
+			bin3 = <<bin1 //左移
+			bin3 = >>bin1 //右移
+			//指定運算子
+			num3 += num1
+			num3 -= num1
+			num3 *= num1
+			num3 /= num1
+			num3 %= num1
+			num3 &= num1
+			num3 |= num1
+			num3 ^= num1
+			num3 <<= num1
+			num3 >>= num1
+			//比較運算子
+			var result
+			result = num1 == num2
+			result = num1 != num2
+			result = num1 > num2
+			result = num1 >= num2
+			result = num1 < num2
+			result = num1 <= num2
+			//三元運算子 ?:
+			bool3 = num1>num2?true:false
+			
+			<!-- 函數 -->
+			function fun1(){
+				document.write("<h2>function</h2>")
+			}
+			function fun2(name, id){
+				document.write("name"+name+"id"+id)
+			}
+			function fun3(){
+				return "Hello!"
+			}
+			
+			<!-- 流程控制 -->
+			//if
+			if (num1==num2){
+				document.write("doto")
+			}
+			//if-else
+			if (num1>num2){
+				document.write("num1 bigger than num2")
+			}else (num1<num2){
+				document.write("num1 less than num2")
+			}
+			//for
+			for(var i=0;i<10;i++){
+				//run 10 times
+				break;
+				continue;
+			}
+			//while
+			while(num1<0){
+				//todo
+				break;
+				continue;
+				num1++
+			}
+			//
+			
+		</script>
+	</body>
+</html>

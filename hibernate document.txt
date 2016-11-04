@@ -1,0 +1,13 @@
+2.1 Hibernate Configuration file 設定檔案
+hibernate.cfg.xml為hibernate預設檔案
+包含設定
+connection.driver_class
+connection.url
+connection.username
+connection.password
+connection.pool
+
+2.2 The entity Java class
+The class use standard JavaBean, getter and setter methods.
+
+

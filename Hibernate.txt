@@ -1,0 +1,115 @@
+◎Hibernate
+
+●O/R mapping 
+將 Java 中的物件與物件關係，映射至關聯式資料庫中的表格與表格之間的關係
+
+●映射文件
+告訴Hibernate您所定義的"物件"，如何映射到資料庫資料表
+
+●SessionFactory
+開啟Session，相當於開啟JDBC的Connection
+
+●Configuration 
+可以自行指定檔案路徑與名稱
+還可以撰寫程式的方式來設定新的屬性，或甚至讀入另一個HBM設定檔案
+Configuration的實例管理Hibernate的配置訊息，通常用於建立SessionFactory
+
+●Hibernate的配置文件中有一部份是在設定資料庫連結
+以及 連接池的設定
+
+●Connection Pool(連線池)
+是一種資料庫連線管理的機制
+資料庫連線的建立成本是昂貴的，故當有許多Thread都需要建立connection時，
+其資源的耗費是龐大的。
+Connection Pool會先跟DB建立好連線(連線數可設定)，並且keep住這些連線；
+當程式需要使用Connection時，pool便會將手上可用的Connection借給程式，
+程式使用完後再歸還給Pool即可。
+
+●Session
+是Hibernate操作的基礎，它不是設計為執行緒安全（Thread-safe）
+Session不會馬上取得Connection，而是在最後真正需要連接資料庫進行更新或查詢時才會取 得Connection。
+如果有設定Connection pool，則從Connection pool中取得Connection，關閉Session則歸還到Connect pool。
+
+●SessionFactory
+是執行緒安全的（Thread-safe），可以讓多個執行緒同時存取SessionFactory而不會有資料共用的問題。
+Session則不是設計為執行緒安全的，所以試圖讓多個執行緒共用一個 Session，將會發生資料共用而發生混亂的問題。 
+
+●Transaction
+操作要就全部成功，要就全部失敗，如果更新失敗，則在資料庫層面會撤消所有更新操作。
+
+●Hibernate實體物件
+Transient
+當您直接使用new創建出物件，在還沒有使用save()之前都是Transient物件
+Persistent
+當物件與資料庫中的資料有對應關係，並且與Session 實例有關聯而Session 實例尚未關閉（close），則它是在Persistent狀態
+Detached
+Detached狀態的物件，其id與資料庫的主鍵值對應，但脫離Session實例的管理，例如在使用load()方法查詢到資料並封裝為物件之後，將Session實例關閉，則物件由Persistent狀態變為Detached狀態
+Removed
+使用Session的實例delete()或remove()方法刪除資料，Persistent狀態的物件由於失去了對應的資料，則它會成為Removed狀態
+
+●Validatable
+●Interceptor
+
+
+●Criteria
+Criteria實際上是個條件附加的容器，
+如果想要設定查詢條件，則要使用Restrictions
+Crieria criteria = session.createCriteria(User.class);
+criteria.add(Restrictions.eq("name", "sean"));
+Order方法
+criteria.addOrder(Order.asc("age"));
+criteria.addOrder(Order.desc("age"));
+設定SQL
+criteria.add(Restrictions.sqlRestriction("SELECT * FROM User"));
+
+為了能夠重複使用Criteria，DetchedCriteria，您可以先建立DetchedCriteria實例，並加入 各種查詢條件，並於需要查詢時再與Session綁定
+
+// 先建立DetchedCriteria物件
+DetachedCriteria detchedCriteria = DetachedCriteria.forClass(User.class);
+// 加入查詢條件
+detchedCriteria.add(Restrictions.ge("age",new Integer(25)));       
+Session session = sessionFactory.openSession();
+// 綁定Session並返回一個Criteria實例
+Criteria criteria = detchedCriteria.getExecutableCriteria(session);
+List users = criteria.list();
+
+
+●Restrictions
+eq相等(equal)
+gt大於(great than)
+ge大於等於
+lt小於(less than)
+le小於等於
+between
+in
+isNUll為空
+like
+and
+or
+
+●HQL (Hibernate Query Language)
+可以透過Query介面，先設定查詢參數，之後透過setXXX()等方法，將指定的參數值填入，而不用每次都撰寫完整的HQL。
+Session session = sessionFactory.openSession();
+Query query = session.createQuery("from User");
+List names = query.list();
+
+
+●複合主鍵
+設定
+<composite-id>
+  <key-property name="" column="" />
+  <key-property name="" column="" />
+</composite-id>
+
+●BOLB
+二進制大型物件(Binary Large Object)
+用於儲存大型二進制對象
+●CLOB
+字符大型物件(Character Large Object)
+與LONG類似不過是用於儲存大型字元數據
+
+●framework
+想成是一個人的行為，要想一下設計人的用意
+底層在做什麼
+
+●●●●●●●●●

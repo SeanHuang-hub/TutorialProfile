@@ -1,0 +1,39 @@
+<!-- Ajax Tutorial -->
+
+<html>
+	<head>
+		<title>Ajax Tutorial</title>
+	</head>
+	<body>
+		<input id="test" type="submit" value="AjaxTest" onclick="testFunc1()" />
+		<script>
+			function testFunc1(){
+				$ajax({
+					//url:URL 網址
+					url:"https://jsonplaceholder.typicode.com/posts/1",
+					//data: 資料
+					data:{
+						"userId":1,
+						"id":1},
+					//type: Http Method(GET,POST,DELETE,PUT)
+					type:POST
+					//dataType: Text,xml,json
+					dataType:"json",
+					//成功時
+					success:function(){
+						//todo
+					}
+					//失敗時
+					error:function(){
+						//todo
+					}
+					//完成結束時
+					complete:function(){
+						//todo
+					}
+					
+				});
+			}
+		</script>
+	</body>
+</html>

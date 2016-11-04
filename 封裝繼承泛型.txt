@@ -1,0 +1,49 @@
+封裝
+是讓實作和界面分開, 以便讓同一界面但不同的實作的物件能以一致的面貌讓外界存取
+
+封裝等級
+public所有接可存取
+protected子class成員函數可見
+private只有該class可以存取
+none(無)同一個package可以存取
+
+可以使用建構式
+
+
+多載
+public method(int a)
+public method(int a, int b)
+
+@Override，表示要求編譯器檢查，該方法是不是真的重新定義了父類別中某個方法
+
+super
+有時候重新定義方法時，並非完全不滿意父類別中的方法，只是希望在執行父類別中方法的前、後作點加工。
+
+宣告為 abstract 的方法不需要實作，其後直接加分號
+
+static
+可以把Static看成是類別所擁有的，而且是一開始就放置於記憶體中的，而Instance則是伴隨著物件產生而產生的。
+
+●泛型
+E只是一個型態參數（表示Element），高興的話，你可以用T、K、V等參數名稱
+
+類別定義時邏輯完全一樣，只是當中宣告的成員型態不同
+
+
+Object 為最上層的父類別，所以用它來實現泛型（Generics）功能是一個不錯的考量。
+由於傳回的是 Object，您必須轉換它的介面(型態)。
+定義出來的泛型類別在使用時多了一層安全性，至少可以省去惱人的 ClassCastException 發生(Object轉換問題)
+
+兩層泛型
+public class WrapperFoo<T> {  
+    private GenericFoo<T> foo;
+}
+
+public class ListGenericFoo<T extends List>
+T只能使用List子類別
+
+實例化型態持有者時，它必須是實作 List 的類別或其子類別，要宣告這麼一個參考名稱，您可以使用 '?' 通配字元，並使用 "extends" 關鍵字限定型態持有者的型態
+GenericFoo<? extends List> foo = null;  
+foo = new GenericFoo<LinkedList>();  
+foo = new GenericFoo<ArrayList>(); 
+

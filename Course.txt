@@ -1,0 +1,71 @@
+
+●Get
+http://mirle.com/ID?=123&Name?=sean
+call -> Query string
+
+●Post
+將表單資料放在 message-body 進行傳送
+
+●json
+javascript 格式
+
+●Model
+1.BO
+2.DAO
+
+●View
+1.呈現
+2.submit資料，透過GET POST
+
+●Controller
+1.接值(DTO)
+2.驗證
+3.轉型
+4.呼叫model
+5.傳導
+
+●Java命名規則
+Class名稱首字大寫
+package名稱全小寫
+駝峰式命名 - 動詞+名詞
+
+●uuid
+是由一組32位元數的16進位數字所構成
+
+●Book
+猛虎出閘
+
+
+●java beans
+一個特殊的class，可將多的對象封裝到一個物件當中。
+(映射多個對象到物件裡面)
+提供getter方法和setter方法，不做任何事只用於拿取。
+
+●java老大(最重要的)
+Object物件
+
+●耦合度
+模組及模組之間 資訊或參數依賴的程度。
+
+●API應用編程介面
+提供的函數庫，降低耦合度，提高系統的維護性與擴展性。
+
+●DTO資料傳輸物件
+把要傳遞的參數放在一個物件中,以傳遞此物件代替參數。
+
+●Autowired
+
+
+●Ioc, Inversion of Control, 控制反轉
+由我們自己在對象中主動控制去直接獲取依賴對象，也就是正轉；
+反轉則是由容器來幫忙創建及注入依賴對象；
+
+●DI依賴注射
+將物件相依的關係，利用一些方式從外部注入到物件中
+
+物件反轉(IOC)是一物件導向原則；
+而依賴注入(Dependency Injection)是依循這原則的實作方式。
+
+●陳凱尉(SD)
+PG
+SD SA
